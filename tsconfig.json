@@ -7,5 +7,10 @@
     {
       "path": "./tsconfig.app.json"
     }
-  ]
+  ],
+  "baseUrl": ".",
+  "paths": {
+    "@/*": ["src/*"],
+    "@components/*": ["src/components/*"]
+  }
 }

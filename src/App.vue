@@ -10,14 +10,20 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
-      <nav>
+      <!-- <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+        <RouterLink to="/edit">写日记</RouterLink>
+        <RouterLink to="/diaryList">列表</RouterLink>
+      </nav> -->
     </div>
   </header>
 
-  <RouterView />
+  <!-- 路由视图容器 -->
+  <RouterView v-slot="{ Component, route }">
+    <Transition :name="route.meta.transitionName || 'fade'">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
 </template>
 
 <style scoped>
